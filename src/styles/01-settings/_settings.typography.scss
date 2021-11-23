@@ -1,0 +1,18 @@
+@include font-face('iCiel Samsung Sharp Sans', 'iCiel-Samsung-Sharp-Sans', 'iCielSamsungSharpSans-Bold', 700);
+@include font-face('Samsung Sharp Sans', 'Samsung-Sharp-Sans', 'SamsungSharpSans', 400);
+@include font-face('Samsung Sharp Sans', 'Samsung-Sharp-Sans', 'SamsungSharpSans-Medium', 500);
+@include font-face('Samsung Sharp Sans', 'Samsung-Sharp-Sans', 'SamsungSharpSans-Bold', 700);
+
+$SamsungSharpSans: 'Samsung Sharp Sans', ;
+$iCielSamsungSharpSans : 'iCiel Samsung Sharp Sans' ;
+
+$font-family-base: $SamsungSharpSans;
+$headings-font-family: $iCielSamsungSharpSans;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-heavy: 800;
+$font-weight-bolder: 900;

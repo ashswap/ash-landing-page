@@ -1,0 +1,248 @@
+.o-hero {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  padding: {
+    top: rem(198px);
+    bottom: rem(360px);
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-top: rem(153px);
+    padding-bottom: rem(240px);
+  }
+
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    z-index: 1;
+  }
+
+  &__bg-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: rem(1111px);
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__bg-overlay {
+    position: absolute;
+    width: 100%;
+    height: rem(176px);
+    top: 750px;
+    transform: translateY(-50%);
+    left: 0;
+    opacity: 0.2;
+    filter: blur(324px);
+    background: $primary;
+  }
+
+  &__bg-image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+
+  &__particle {
+    position: absolute;
+    background-color: $primary;
+    will-change: transform;
+
+    &--1 {
+      width: rem(43px);
+      height: rem(15px);
+      left: rem(105px);
+      top: rem(336px);
+      transform-origin: left;
+    }
+
+    &--2 {
+      width: rem(14px);
+      height: rem(14px);
+      top: rem(330px);
+      right: 0;
+      transform-origin: left top;
+    }
+
+    &--3 {
+      width: rem(49px);
+      height: rem(8px);
+      top: rem(413px);
+      right: rem(90px);
+      transform-origin: right top;
+      opacity: 0.3;
+    }
+
+    &--4 {
+      width: rem(24px);
+      height: rem(24px);
+      bottom: rem(317px);
+      right: 0;
+      transform-origin: right bottom;
+    }
+
+    &--5 {
+      width: rem(10.47px);
+      height: rem(10.47px);
+      bottom:  0;
+      right: rem(370px);
+      filter: blur(10px);
+    }
+
+    &--6 {
+      width: rem(16px);
+      height: rem(16px);
+      bottom: 0;
+      left: rem(335px);
+      filter: blur(10px);
+    }
+
+    &--7 {
+      width: rem(10.47px);
+      height: rem(10.47px);
+      bottom:  0;
+      left: rem(100px);
+      filter: blur(10px);
+    }
+
+    &--8 {
+      width: rem(16px);
+      height: rem(16px);
+      bottom: 0;
+      right: rem(135px);
+      filter: blur(10px);
+    }
+
+
+  }
+
+  &__volcano {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__volcano-fire {
+    width: rem(157px);
+    height: rem(206px);
+    position: relative;
+  }
+
+  &__volcano-ray {
+    position: absolute;
+    left: 46%;
+    bottom: -34px;
+    transform: translateX(-50%);
+  }
+
+  &__volcano-flame {
+    position: absolute;
+    top: rem(30px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    &--sm {
+      top: -10px;
+    }
+  }
+
+  &__volcano-heli {
+    display: flex;
+    justify-content: center;
+
+    >svg {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__container {
+    @include make-container();
+    @include make-container-max-widths();
+    position: relative;
+    z-index: 2;
+  }
+
+  &__sub {
+    color: $grey-blue;
+    font-size: rem(18px);
+    line-height: rem(23px);
+    letter-spacing: -0.4px;
+    padding-left: rem(24px);
+    max-width: rem(375px + 24px);
+    position: relative;
+    text-shadow: 0px 4px 50px rgba(51, 50, 74, 0.25);
+
+    &::before {
+      content: '';
+      width: rem(10px);
+      height: rem(10px);
+      position: absolute;
+      top: rem(5px);
+      left: 0;
+      background-color: $primary;
+    }
+
+    @include media-breakpoint-down(md) {
+      font-size: rem(14px);
+      line-height: rem(17.64px);
+    }
+  }
+
+  &__title {
+    color: $white;
+    font-size: rem(64px);
+    line-height: rem(79px);
+    font-weight: $font-weight-bold;
+    text-align: center;
+    max-width: rem(695px);
+    margin: {
+      top: rem(54px);
+      left: auto;
+      right: auto;
+    }
+    text-shadow: 0px 4px 50px rgba(51, 50, 74, 0.25);
+
+    @include media-breakpoint-down(md) {
+      font-size: rem(36px);
+      line-height: rem(44.64px);
+      margin-top: rem(65px);
+    }
+  }
+
+  &__cta {
+    width: 100%;
+    max-width: rem(197.016px);
+    display: block;
+    margin-top: rem(48px);
+    margin-left: auto;
+    margin-right: auto;
+
+    @include media-breakpoint-down(md) {
+      margin-top: rem(42px);
+    }
+  }
+
+}
+

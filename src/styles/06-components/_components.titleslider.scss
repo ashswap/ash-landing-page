@@ -1,0 +1,54 @@
+.c-titleslider {
+  width: rem(381px);
+  height: rem(132px);
+  overflow: hidden;
+
+  @include media-breakpoint-down(md) {
+    height: rem(80px);
+  }
+
+  @include media-breakpoint-down(xs) {
+    height: rem(90px);
+  }
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    transition-property: transform;
+    will-change: transform;  }
+
+  &__item {
+    display: flex;
+    backface-visibility: hidden;
+  }
+
+  &__count {
+    color: $grey-blue;
+    font-size: rem(48px);
+    line-height: rem(59.52px);
+    font-weight: $font-weight-bold;
+    margin-right: rem(48px);
+    margin-bottom: 0;
+
+    @include media-breakpoint-down(md) {
+      font-size: rem(24px);
+      line-height: rem(29.76px);
+      margin-right: rem(10px);
+    }
+  }
+
+  &__title {
+    color: $white;
+    font-size: rem(36px);
+    line-height: rem(44.64px);
+    font-weight: $font-weight-bold;
+    max-width: rem(279.73px);
+    margin-bottom: 0;
+    text-shadow: 0px 4px 50px rgba(51, 50, 74, 0.25);
+
+    @include media-breakpoint-down(md) {
+      font-size: rem(18px);
+      line-height: rem(22.32px);
+    }
+  }
+}
