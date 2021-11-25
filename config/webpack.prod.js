@@ -7,6 +7,7 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const BrotliPlugin = require("brotli-webpack-plugin");
 const PurgecssPlugin = require('purgecss-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 const glob = require("glob");
 
 module.exports = {
@@ -38,7 +39,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|svg|jpe?g|gif)$/,
+        test: /\.(png|svg|jpe?g|gif|ico)$/,
         use: [
           {
             loader: "file-loader", // This will resolves import/require() on a file into a url and emits the file into the output directory.
@@ -115,5 +116,10 @@ module.exports = {
     //   algorithm: "gzip"
     // }),
     // new BrotliPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: "./src/images/favicon.ico", to: "assets/favicon.ico" },
+      ],
+    }),
   ]
 };
