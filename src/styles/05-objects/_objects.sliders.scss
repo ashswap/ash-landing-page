@@ -1,4 +1,5 @@
 .o-sliders {
+  display: block;
   position: relative;
   padding-top: rem(31px);
   padding-bottom: rem(97px);
@@ -18,7 +19,7 @@
 
   &__particles {
     @include media-breakpoint-down(sm) {
-      display: none;
+      @include  hidden-visually();
     }
   }
 

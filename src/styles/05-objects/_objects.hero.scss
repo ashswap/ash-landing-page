@@ -1,7 +1,9 @@
 .o-hero {
+  display: block;
   width: 100%;
   position: relative;
   overflow: hidden;
+  -webkit-transform: translate3d(0,0,0);
 
   padding: {
     top: rem(198px);
@@ -10,7 +12,7 @@
 
   @include media-breakpoint-down(md) {
     padding-top: rem(153px);
-    padding-bottom: rem(240px);
+    padding-bottom: 20rem;
   }
 
   &__bg {
@@ -55,7 +57,7 @@
     inset: 0;
 
     @include media-breakpoint-down(md) {
-      display: none;
+      @include  hidden-visually();
     }
   }
 
@@ -161,6 +163,7 @@
     top: rem(30px);
     left: 50%;
     transform: translateX(-50%);
+    will-change: transform;
 
     &--sm {
       top: -10px;

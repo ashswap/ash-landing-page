@@ -1,7 +1,8 @@
 .o-main {
-  background: $dark;
+  display: block;
   position: relative;
-  overflow-x: hidden;
+  background: $dark;
+  -webkit-transform: translate3d(0,0,0);
 
   &__lines {
     width: 100%;
@@ -37,7 +38,7 @@
       left: 34.33333%;
 
       @include media-breakpoint-down(md) {
-        display: none;
+        @include  hidden-visually();
       }
     }
 
