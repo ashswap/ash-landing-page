@@ -4,6 +4,7 @@
   position: relative;
   overflow: hidden;
   -webkit-transform: translate3d(0,0,0);
+  z-index: 3;
 
   padding: {
     top: rem(198px);
