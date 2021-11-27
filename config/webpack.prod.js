@@ -7,7 +7,6 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const BrotliPlugin = require("brotli-webpack-plugin");
 const PurgecssPlugin = require('purgecss-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
 const glob = require("glob");
 
 module.exports = {
@@ -96,9 +95,9 @@ module.exports = {
     // In this case, this plugin will remove 'dist' and 'build' folder before re-build again
     new CleanWebpackPlugin(),
     // PurgecssPlugin will remove unused CSS
-    /*new PurgecssPlugin({
-      //paths: glob.sync(path.resolve(__dirname, '../src/'), { nodir: true })
-    //}),*/
+    new PurgecssPlugin({
+      paths: glob.sync(path.resolve(__dirname, '../src/**/*'), { nodir: true })
+    }),
     // This plugin will extract all css to one file
     new MiniCssExtractPlugin({
       filename: "[name].[chunkhash:8].bundle.css",
@@ -116,10 +115,5 @@ module.exports = {
     //   algorithm: "gzip"
     // }),
     // new BrotliPlugin(),
-    new CopyPlugin({
-      patterns: [
-        { from: "./src/images/favicon.ico", to: "assets/favicon.ico" },
-      ],
-    }),
   ]
 };

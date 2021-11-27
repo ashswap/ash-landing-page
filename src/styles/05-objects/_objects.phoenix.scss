@@ -5,7 +5,7 @@
     top: rem(98px);
     bottom: rem(277px);
   }
-  z-index: 4;
+  z-index: 2;
 
   @include media-breakpoint-down(md) {
     padding-bottom: rem(110px);
@@ -84,8 +84,6 @@
   }
 
   &__image {
-
-
 
     &--main {
       @include media-breakpoint-up(lg) {

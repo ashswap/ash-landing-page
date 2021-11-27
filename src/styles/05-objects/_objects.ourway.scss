@@ -2,6 +2,7 @@
   display: block;
   padding-top: rem(192px);
   padding-bottom: rem(80px);
+  background: $dark;
 
   @include media-breakpoint-down(md) {
     padding-top: 0;
@@ -62,12 +63,17 @@
   &__vectors {
     position: relative;
     width: 100%;
+    will-change: transform;
   }
 
   &__vector {
     >svg {
       max-width: 100%;
       height: auto;
+
+      &, g * {
+        will-change: transform;
+      }
     }
 
     &--top {
@@ -183,6 +189,10 @@
   }
 
   &__particle {
+    &,* {
+      will-change: transform;
+    }
+
     &--1 {
       transform-origin: right;
     }
@@ -193,6 +203,8 @@
 
   rect{
     transition: 0.3s;
+    will-change: transform;
+
   }
 
   &:hover {
