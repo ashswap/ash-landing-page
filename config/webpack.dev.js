@@ -86,6 +86,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: "./src/images/favicon.ico", to: "assets/favicon.ico" },
+        { from: "./src/images/twitter-card.png", to: "assets/twitter-card.png" },
       ],
     }),
   ]

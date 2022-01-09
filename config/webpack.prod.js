@@ -7,6 +7,7 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const BrotliPlugin = require("brotli-webpack-plugin");
 const PurgecssPlugin = require('purgecss-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 const glob = require("glob");
 
 module.exports = {
@@ -115,5 +116,13 @@ module.exports = {
     //   algorithm: "gzip"
     // }),
     // new BrotliPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: "./src/images/favicon.ico", to: "assets/favicon.ico" },
+        { from: "./src/images/twitter-card.png", to: "assets/twitter-card.png" },
+        { from: "./src/robots.txt", to: "robots.txt" },
+        { from: "./src/sitemap.xml", to: "sitemap.xml" },
+      ],
+    }),
   ]
 };

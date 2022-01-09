@@ -25,11 +25,11 @@
 
     @include media-breakpoint-up(lg) {
       &--left {
-        @include make-col(4.12)
+        @include make-col(4.12);
       }
 
       &--right {
-        @include make-col(7.88)
+        @include make-col(7.88);
       }
     }
   }
@@ -73,18 +73,20 @@
   &__images {
     position: relative;
     will-change: transform;
-   }
+    &__bg {
+      width: 100%;
+    }
+  }
 
-    @include media-breakpoint-up(lg) {
-      margin-top: -80px;
+  @include media-breakpoint-up(lg) {
+    margin-top: -80px;
 
-      >div {
-        will-change: transform;
+    > div {
+      will-change: transform;
     }
   }
 
   &__image {
-
     &--main {
       @include media-breakpoint-up(lg) {
         margin-top: -150px;
