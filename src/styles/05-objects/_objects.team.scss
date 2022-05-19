@@ -1,0 +1,152 @@
+.o-team{
+  display: block;
+  padding-top: rem(192px);
+  padding-bottom: rem(80px);
+  position: relative;
+  z-index: 10;
+
+  @include media-breakpoint-down(md) {
+    padding-top: 0;
+  }
+  &__container {
+    @include make-container();
+    @include make-container-max-widths();
+  }
+  &__heading{
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: rem(65px);
+    @include media-breakpoint-down(md) {
+      font-size: rem(36px);
+      line-height: rem(44.64px);
+      margin-bottom: rem(30px);
+    }
+  }
+  &__container-founder{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(540px), 1fr));
+    column-gap: rem(30px);
+    row-gap: rem(130px);
+    margin-bottom: rem(130px);
+    @include media-breakpoint-down(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__founder{
+    &-header{
+      background-image: url("../images/founder-bg.png");
+      background-size: cover;
+      background-blend-mode: luminosity;
+      background-color: $light-gray;
+      position: relative;
+      margin-bottom: rem(88px);
+      height: rem(255px);
+      display: flex;
+      align-items: flex-end;
+      padding-block: rem(24px);
+      &::before{
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(43, 44, 68, 0.9);
+      }
+      @include media-breakpoint-down(md) {
+        margin-bottom: rem(40px);
+        padding-block: rem(16px);
+      }
+    }
+    &-img{
+      background-color: $dark;
+      margin-bottom: rem(-80px);
+      margin-right: rem(68px);
+      flex-shrink: 0;
+      @include media-breakpoint-down(md) {
+        margin-right: rem(30px);
+        margin-bottom: rem(-40px);
+      }
+      img{
+        width: rem(210px);
+        height: rem(210px);
+        object-fit: cover;
+        mix-blend-mode: luminosity;
+        @include media-breakpoint-down(md) {
+          width: rem(160px);
+        height: rem(160px);
+        }
+      }
+
+    }
+    &-power{
+      position: relative;
+      width: rem(145px);
+      height: auto;
+      margin-left: rem(-24px);
+    }
+    &-title{
+      position: relative;
+      font-size: rem(24px);
+      font-weight: 700;
+      color: white;
+    }
+    .o-team__name{
+      font-size: 2rem;
+      list-style: rem(40px);
+      margin-bottom: 1.5rem;
+    }
+  }
+  &__container-member{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(255px), 1fr));
+    column-gap: rem(30px);
+    row-gap: rem(130px);
+  }
+  &__member{
+    &-img-wrapper{
+      position: relative;
+      padding-top: 160px*100%/255px;
+      background-color: $dark;
+      overflow: hidden;
+      img{
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        mix-blend-mode: luminosity;
+      }
+    }
+  }
+  &__name{
+    font-size: 1.5rem;
+    list-style: rem(30px);
+    font-weight: bold;
+    &-firstname{
+      color: white;
+    }
+    &-lastname{
+      color: $light-gray;
+    }
+  }
+  &__role{
+    font-size: rem(18px);
+    line-height: rem(22px);
+    font-weight: bold;
+    color: $light-gray;
+    margin-bottom: 0.5rem;
+  }
+  &__bio{
+    margin-block: rem(36px);
+    max-width: rem(350px);
+    font-size: rem(12px);
+    font-weight: bold;
+    color: $light-gray;
+  }
+  &__contact{
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: cover;
+
+  }
+
+}

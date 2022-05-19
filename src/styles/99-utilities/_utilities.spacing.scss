@@ -1,0 +1,16 @@
+$direction: (
+  t: "top",
+  b: "bottom",
+  r: "right",
+  l: "left"
+);
+@for $i from 1 through 10{
+  @each $name, $value in $direction {
+    .m#{$name}-#{$i}{
+      margin-#{$value}: $i * $spacing-step;
+    }
+    .p#{$name}-#{$i}{
+      padding-#{$value}: $i * $spacing-step;
+    }
+  }
+}
