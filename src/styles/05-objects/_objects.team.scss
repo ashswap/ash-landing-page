@@ -1,4 +1,4 @@
-.o-team{
+.o-team {
   display: block;
   padding-top: rem(192px);
   padding-bottom: rem(80px);
@@ -12,7 +12,7 @@
     @include make-container();
     @include make-container-max-widths();
   }
-  &__heading{
+  &__heading {
     color: white;
     font-size: 4rem;
     font-weight: bold;
@@ -23,7 +23,7 @@
       margin-bottom: rem(30px);
     }
   }
-  &__container-founder{
+  &__container-founder {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(rem(540px), 1fr));
     column-gap: rem(30px);
@@ -31,10 +31,12 @@
     margin-bottom: rem(130px);
     @include media-breakpoint-down(md) {
       grid-template-columns: 1fr;
+      row-gap: rem(60px);
+      margin-bottom: rem(100px);
     }
   }
-  &__founder{
-    &-header{
+  &__founder {
+    &-header {
       background-image: url("../images/founder-bg.png");
       background-size: cover;
       background-blend-mode: luminosity;
@@ -45,7 +47,7 @@
       display: flex;
       align-items: flex-end;
       padding-block: rem(24px);
-      &::before{
+      &::before {
         content: "";
         position: absolute;
         inset: 0;
@@ -56,58 +58,78 @@
         padding-block: rem(16px);
       }
     }
-    &-img{
+    &-img {
       background-color: $dark;
       margin-bottom: rem(-80px);
       margin-right: rem(68px);
       flex-shrink: 0;
-      @include media-breakpoint-down(md) {
-        margin-right: rem(30px);
-        margin-bottom: rem(-40px);
-      }
-      img{
+      img {
         width: rem(210px);
         height: rem(210px);
         object-fit: cover;
         mix-blend-mode: luminosity;
-        @include media-breakpoint-down(md) {
+      }
+      @include media-breakpoint-down(md) {
+        margin-right: rem(30px);
+        margin-bottom: rem(-40px);
+        img {
           width: rem(160px);
-        height: rem(160px);
+          height: rem(160px);
         }
       }
-
+      @include media-breakpoint-down(xs) {
+        margin-right: rem(15px);
+        img {
+          width: rem(140px);
+          height: rem(140px);
+        }
+      }
     }
-    &-power{
+    &-power {
       position: relative;
       width: rem(145px);
       height: auto;
       margin-left: rem(-24px);
     }
-    &-title{
+    &-title {
       position: relative;
       font-size: rem(24px);
       font-weight: 700;
       color: white;
+      @include media-breakpoint-down(xs) {
+        font-size: rem(18px);
+      }
     }
-    .o-team__name{
+    .o-team__name {
       font-size: 2rem;
       list-style: rem(40px);
       margin-bottom: 1.5rem;
+      @include media-breakpoint-down(xs) {
+        font-size: 1.5rem;
+      }
     }
   }
-  &__container-member{
+  &__container-member {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(rem(255px), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(rem(200px), 1fr));
     column-gap: rem(30px);
     row-gap: rem(130px);
+    @include media-breakpoint-down(md) {
+      row-gap: rem(30px);
+    }
+    @include media-breakpoint-down(xs) {
+      grid-template-columns: repeat(auto-fill, minmax(rem(160px), 1fr));
+      margin-inline: auto;
+      column-gap: rem(15px);
+    }
   }
-  &__member{
-    &-img-wrapper{
+  &__member {
+    &-img-wrapper {
       position: relative;
-      padding-top: 160px*100%/255px;
+      padding-top: 100%;
       background-color: $dark;
       overflow: hidden;
-      img{
+      img {
         position: absolute;
         inset: 0;
         width: 100%;
@@ -117,36 +139,41 @@
       }
     }
   }
-  &__name{
+  &__name {
     font-size: 1.5rem;
     list-style: rem(30px);
     font-weight: bold;
-    &-firstname{
+    &-firstname {
       color: white;
     }
-    &-lastname{
+    &-lastname {
       color: $light-gray;
     }
+    @include media-breakpoint-down(xs) {
+      font-size: 1.2rem;
+    }
   }
-  &__role{
+  &__role {
     font-size: rem(18px);
     line-height: rem(22px);
     font-weight: bold;
     color: $light-gray;
     margin-bottom: 0.5rem;
+    @include media-breakpoint-down(xs) {
+      font-size: rem(14px);
+      line-height: 1.2;
+    }
   }
-  &__bio{
+  &__bio {
     margin-block: rem(36px);
     max-width: rem(350px);
     font-size: rem(12px);
     font-weight: bold;
     color: $light-gray;
   }
-  &__contact{
+  &__contact {
     width: 1.5rem;
     height: 1.5rem;
     object-fit: cover;
-
   }
-
 }

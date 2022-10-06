@@ -15,8 +15,9 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "../build"),
     compress: true,
-    port: 3000,
+    port: 3200,
     overlay: true,
+    disableHostCheck: true,   // That solved it
   },
   devtool: "cheap-module-eval-source-map",
   module: {

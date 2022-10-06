@@ -7,5 +7,6 @@ body {
   &.is-gradpanel-open {
     overflow: hidden;
   }
-
+  background-color: $dark;
+  position: relative;
 }

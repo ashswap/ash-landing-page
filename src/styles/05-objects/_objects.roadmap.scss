@@ -1,0 +1,123 @@
+.o-roadmap {
+  padding-top: rem(200px);
+  padding-bottom: rem(40px);
+  &__container {
+    @include make-container();
+    @include make-container-max-widths();
+    position: relative;
+    z-index: 2;
+  }
+  &__row {
+    @include make-row(30px);
+    justify-content: center;
+  }
+  &__col {
+    @include make-col(4);
+    padding: 0 15px;
+    @include media-breakpoint-down(md) {
+      @include make-col(6);
+      margin-bottom: rem(30px);
+    }
+    @include media-breakpoint-down(sm) {
+      @include make-col(12);
+      margin-bottom: rem(30px);
+    }
+  }
+  &__card {
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%);
+    position: relative;
+    padding: rem(155px) rem(40px) rem(68px) rem(50px);
+    color: white;
+    background: #35354e url("../images/svgs/bamboo-shoot.svg") calc(100% - 40px)
+      68px no-repeat;
+    height: 100%;
+    min-height: rem(450px);
+    &--tag {
+      position: absolute;
+      top: rem(24px);
+      left: rem(18px);
+      font-size: rem(32px);
+      font-weight: 700;
+      color: white;
+      transform: rotate(-90deg);
+      transform-origin: bottom;
+      line-height: 1.125;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        font-weight: 700;
+        font-size: rem(18px);
+        margin-bottom: rem(24px);
+      }
+    }
+  }
+  &__header {
+    display: flex;
+  }
+  &__title {
+    font-weight: 700;
+    font-size: rem(64px);
+    line-height: rem(80px);
+    color: #ffffff;
+    margin-bottom: rem(100px);
+
+    text-shadow: 0px 4px 50px rgba(51, 50, 74, 0.25);
+    flex: 1 0 65%;
+    position: relative;
+    z-index: 3;
+    @include media-breakpoint-down(lg) {
+      font-size: rem(40px);
+      line-height: 1.25;
+    }
+    @include media-breakpoint-down(md) {
+      font-size: rem(36px);
+      margin-bottom: rem(40px);
+    }
+  }
+  &__wing {
+    position: relative;
+    flex: 1 0 35%;
+    img {
+      position: absolute;
+      z-index: 2;
+      width: rem(560px);
+      height: auto;
+      max-width: unset;
+      bottom: rem(-64px);
+      right: rem(-124px);
+      @include media-breakpoint-down(lg) {
+        width: rem(400px);
+        bottom: rem(-45px);
+        right: rem(-64px);
+      }
+      @include media-breakpoint-down(xs) {
+        width: rem(200px);
+        bottom: rem(-24px);
+        right: rem(-40px);
+      }
+    }
+  }
+  &__bg {
+    &--tail {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1000px;
+      height: 1000px;
+      transform: translate(-33%, -39%);
+      background: url("../images/bg-roadmap.png") no-repeat;
+      background-size: contain;
+      @include media-breakpoint-down(lg) {
+        width: 800px;
+        height: 800px;
+      }
+      @include media-breakpoint-down(md) {
+        width: 600px;
+        height: 600px;
+      }
+    }
+  }
+}

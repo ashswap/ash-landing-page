@@ -1,0 +1,87 @@
+.o-partners {
+  padding-top: rem(200px);
+  padding-bottom: rem(100px);
+  @include media-breakpoint-down(md) {
+    padding-top: rem(40px);
+    padding-bottom: rem(80px);
+  }
+  &__container {
+    @include make-container();
+    @include make-container-max-widths();
+    position: relative;
+    z-index: 2;
+  }
+  &__title {
+    font-weight: 700;
+    font-size: rem(64px);
+    line-height: 1.25;
+    color: white;
+    margin-bottom: rem(80px);
+    @include media-breakpoint-down(md) {
+      font-size: rem(48px);
+    }
+    @include media-breakpoint-down(sm) {
+      font-size: rem(36px);
+    }
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    column-gap: rem(30px);
+    row-gap: rem(30px);
+    @include media-breakpoint-down(lg) {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    @include media-breakpoint-down(md) {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      row-gap: rem(15px);
+    }
+    @include media-breakpoint-down(sm) {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+  }
+  &__item {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    a {
+      display: inline-block;
+      @include media-breakpoint-down(sm) {
+        max-width: clamp(150px, 80%, 200px);
+      }
+    }
+    img {
+      max-width: 100%;
+    }
+    @include media-breakpoint-down(md) {
+      justify-content: center;
+    }
+  }
+  &__col {
+    @include make-col(3);
+    padding: 0 55px;
+    margin-bottom: rem(40px);
+    @include media-breakpoint-down(lg) {
+      padding: 0 40px;
+    }
+    @include media-breakpoint-down(md) {
+      @include make-col(4);
+      padding: 0 20px;
+    }
+    @include media-breakpoint-down(sm) {
+      @include make-col(6);
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    &:nth-child(1) {
+      img {
+        width: 80%;
+      }
+    }
+    &:nth-child(3) {
+      transform: translateY(12.5%);
+    }
+  }
+}
