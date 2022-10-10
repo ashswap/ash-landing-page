@@ -2,6 +2,7 @@
   display: block;
   position: relative;
   background: $dark;
+  overflow-x: hidden;
 
   &__lines {
     width: 100%;
@@ -23,7 +24,7 @@
     position: absolute;
     height: 100%;
     width: 1px;
-    background-color: #33324A;
+    background-color: #33324a;
     will-change: transform;
 
     &--1 {
@@ -38,7 +39,7 @@
       left: 34.33333%;
 
       @include media-breakpoint-down(md) {
-        @include  hidden-visually();
+        @include hidden-visually();
       }
     }
 

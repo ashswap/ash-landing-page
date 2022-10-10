@@ -1,0 +1,79 @@
+.c-feat-contentslider {
+  overflow: hidden;
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    transition-property: transform;
+    will-change: transform;
+  }
+
+  &__item {
+    height: 100%;
+    padding: rem(47px) rem(55px);
+    position: relative;
+    backface-visibility: hidden;
+    overflow: hidden;
+
+    @include media-breakpoint-down(md) {
+      padding: rem(25px);
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: #2a2a41;
+    clip-path: polygon(
+      100% 0,
+      100% calc(100% - 32px),
+      calc(100% - 32px) 100%,
+      0 100%,
+      0 0
+    );
+  }
+
+  &__index {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    color: white;
+    font-size: rem(18px);
+    font-weight: 700;
+    transform: rotate(-90deg);
+    @include media-breakpoint-down(md) {
+      font-size: rem(14px);
+    }
+    @include media-breakpoint-down(sm) {
+      font-size: rem(12px);
+    }
+  }
+
+  &__title {
+    color: #00ffff;
+    text-shadow: 0px 4px 50px rgba(51, 50, 74, 0.25);
+    font-size: rem(24px);
+    font-weight: 700;
+    margin-bottom: rem(24px);
+    @include media-breakpoint-down(md) {
+      font-size: rem(16px);
+      margin-bottom: rem(16px);
+    }
+    @include media-breakpoint-down(sm) {
+      font-size: rem(14px);
+      margin-bottom: rem(14px);
+    }
+  }
+  &__text {
+    color: #b7b7d7;
+    text-shadow: 0px 4px 50px rgba(51, 50, 74, 0.25);
+    font-size: rem(18px);
+    font-weight: 700;
+    @include media-breakpoint-down(md) {
+      font-size: rem(14px);
+    }
+    @include media-breakpoint-down(sm) {
+      font-size: rem(12px);
+    }
+  }
+}

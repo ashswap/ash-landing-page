@@ -15,6 +15,12 @@
     justify-content: space-between;
     padding-top: rem(67px);
     padding-bottom: rem(52px - 18px);
+    > div {
+      margin-bottom: rem(30px);
+      @include media-breakpoint-down(sm) {
+        width: 100%;
+      }
+    }
   }
 
   &__brand {
@@ -32,6 +38,9 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    @include media-breakpoint-down(sm) {
+      align-items: center;
+    }
   }
 
   &__logo {
@@ -48,7 +57,6 @@
     }
   }
 
-
   &__nav {
     display: flex;
     align-items: center;
@@ -62,7 +70,7 @@
   }
 
   &__nav-item {
-    &+& {
+    & + & {
       margin-left: rem(32px);
     }
   }
@@ -137,7 +145,7 @@
   }
 
   &__socials-item {
-    &+& {
+    & + & {
       margin-left: 8px;
     }
   }
