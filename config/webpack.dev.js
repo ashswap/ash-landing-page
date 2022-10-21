@@ -93,6 +93,7 @@ module.exports = {
         },
         { from: "./src/images/ash-logo.png", to: "assets/ash-logo.png" },
         { from: "./src/images/ash-logo.svg", to: "assets/ash-logo.svg" },
+        { from: "./src/files/terms-of-sale.pdf", to: "files/terms-of-sale.pdf" },
       ],
     }),
   ],

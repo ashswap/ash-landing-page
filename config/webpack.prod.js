@@ -125,6 +125,7 @@ module.exports = {
         },
         { from: "./src/images/ash-logo.png", to: "assets/ash-logo.png" },
         { from: "./src/images/ash-logo.svg", to: "assets/ash-logo.svg" },
+        { from: "./src/files/terms-of-sale.pdf", to: "files/terms-of-sale.pdf" },
         { from: "./src/robots.txt", to: "robots.txt" },
         { from: "./src/sitemap.xml", to: "sitemap.xml" },
       ],
