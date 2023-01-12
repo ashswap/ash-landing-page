@@ -9,15 +9,17 @@ const BrotliPlugin = require("brotli-webpack-plugin");
 const PurgecssPlugin = require("purgecss-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const glob = require("glob");
-
+const pages = ["index", "legal", "privacy-policy", "terms", "disclaimer", "imprint"];
 module.exports = {
-  entry: {
-    main: "./src/index.js",
-  },
+  entry: pages.reduce((config, page) => {
+    config[page] = `./src/scripts/pages/${page}.js`;
+    return config;
+  }, {}),
   output: {
     path: path.join(__dirname, "../build"),
     filename: "[name].[chunkhash:8].bundle.js",
     chunkFilename: "[name].[chunkhash:8].chunk.js",
+    publicPath: "/"
   },
   mode: "production",
   module: {
@@ -29,10 +31,15 @@ module.exports = {
           loader: "babel-loader", // transpiling our JavaScript files using Babel and webpack
         },
       },
+      // {
+      //   test: /\.css$/i,
+      //   use: ['style-loader', 'css-loader', 'postcss-loader'],
+      // },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(sc|sa|c)ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
+          // "style-loader",
           "css-loader", // translates CSS into CommonJS
           "postcss-loader", // Loader for webpack to process CSS with PostCSS
           "sass-loader", // compiles Sass to CSS, using Node Sass by default
@@ -83,13 +90,14 @@ module.exports = {
           test: /[\\/]node_modules[\\/]/,
           name: "vendors",
           chunks: "all",
+          reuseExistingChunk: true,
         },
       },
-      chunks: "all",
+      // chunks: "all",
     },
-    runtimeChunk: {
-      name: "runtime",
-    },
+    // runtimeChunk: {
+    //   name: "runtime",
+    // },
   },
   plugins: [
     // CleanWebpackPlugin will do some clean up/remove folder before build
@@ -105,16 +113,21 @@ module.exports = {
       chunkFilename: "[name].[chunkhash:8].chunk.css",
     }),
     // The plugin will generate an HTML5 file for you that includes all your webpack bundles in the body using script tags
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "index.html",
-    }),
+    ...pages.map(
+      (page) =>
+        new HtmlWebpackPlugin({
+          inject: true,
+          template: `./src/${page}.html`,
+          filename: page === "index" ? `${page}.html` : page === "privacy-policy" ? `privacy/policy/index.html` : `${page}/index.html`,
+          chunks: [page],
+        })
+    ),
     // ComppresionPlugin will Prepare compressed versions of assets to serve them with Content-Encoding.
     // In this case we use gzip
     // But, you can also use the newest algorithm like brotli, and it's supperior than gzip
-    // new CompressionPlugin({
-    //   algorithm: "gzip"
-    // }),
+    new CompressionPlugin({
+      algorithm: "gzip"
+    }),
     // new BrotliPlugin(),
     new CopyPlugin({
       patterns: [

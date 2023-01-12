@@ -8,3 +8,9 @@ img{
   max-width: 100%;
   height: auto;
 }
+.el-container {
+  @include make-container();
+  @include make-container-max-widths();
+  position: relative;
+  z-index: 2;
+}
