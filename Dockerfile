@@ -1,11 +1,11 @@
-FROM node:12 AS builder
+FROM node:16.18 AS builder
 WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 COPY . .
 RUN yarn build
 
-FROM node:12 AS runner
+FROM node:16.18 AS runner
 WORKDIR /app
 RUN yarn global add serve@13.0.4
 
