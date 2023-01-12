@@ -31,12 +31,12 @@ module.exports = {
           loader: "babel-loader", // transpiling our JavaScript files using Babel and webpack
         },
       },
+      // {
+      //   test: /\.css$/i,
+      //   use: ['style-loader', 'css-loader', 'postcss-loader'],
+      // },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
-      },
-      {
-        test: /\.s[ac]ss$/i,
+        test: /\.(sc|sa|c)ss$/i,
         use: [
           "style-loader", // creates style nodes from JS strings
           "css-loader", // translates CSS into CommonJS
