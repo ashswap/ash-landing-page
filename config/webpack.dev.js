@@ -2,14 +2,16 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-
+const pages = ["index", "legal", "privacy-policy", "terms", "disclaimer", "imprint"];
 module.exports = {
-  entry: {
-    main: "./src/index.js",
-  },
+  entry: pages.reduce((config, page) => {
+    config[page] = `./src/scripts/pages/${page}.js`;
+    return config;
+  }, {}),
   output: {
     path: path.join(__dirname, "../build"),
-    filename: "[name].bundle.js",
+    filename: "[name].js",
+    publicPath: "/"
   },
   mode: "development",
   devServer: {
@@ -28,6 +30,10 @@ module.exports = {
         use: {
           loader: "babel-loader", // transpiling our JavaScript files using Babel and webpack
         },
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.s[ac]ss$/i,
@@ -80,10 +86,15 @@ module.exports = {
     // In this case, this plugin will remove 'dist' and 'build' folder before re-build again
     new CleanWebpackPlugin(),
     // The plugin will generate an HTML5 file for you that includes all your webpack bundles in the body using script tags
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "index.html",
-    }),
+    ...pages.map(
+      (page) =>
+        new HtmlWebpackPlugin({
+          inject: true,
+          template: `./src/${page}.html`,
+          filename: page === "index" ? `${page}.html` : page === "privacy-policy" ? `privacy/policy/index.html` : `${page}/index.html`,
+          chunks: [page],
+        })
+    ),
     new CopyPlugin({
       patterns: [
         { from: "./src/images/favicon.ico", to: "assets/favicon.ico" },

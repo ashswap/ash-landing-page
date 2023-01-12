@@ -94,13 +94,13 @@
   }
 
   &__link {
-    color: $white;
+    color: #757391;
     font-size: rem(10px);
     line-height: rem(13px);
     text-decoration: underline;
     margin-bottom: 18px;
     width: 33.33%;
-    opacity: 0.3;
+    // opacity: 0.3;
 
     &:hover {
       opacity: 1;
