@@ -5,12 +5,12 @@
   "main": "./src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+git@github.com:saddamcrr7/Ashswap-Landing-Page.git"
+    "url": "git@github.com:ashswap/ash-landing-page.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "git@github.com:saddamcrr7/Ashswap-Landing-Page.git"
+    "url": "git@github.com:ashswap/ash-landing-page.git"
   },
   "homepage": "/Ashswap-Landing-Page",
   "devDependencies": {
