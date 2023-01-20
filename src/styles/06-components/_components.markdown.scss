@@ -28,9 +28,17 @@
     padding-bottom: rem(16px);
   }
 
-  ul {
+  ul, ol {
     list-style: outside;
     list-style-type: disc;
     padding: rem(8px) 0 rem(8px) rem(48px);
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
   }
 }
